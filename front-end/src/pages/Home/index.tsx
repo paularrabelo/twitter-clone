@@ -28,9 +28,7 @@ const Home = () => {
                         <Input placeholder='usuário' />
                         <Input placeholder='email' />
                         <Input placeholder='senha' />
-                        <Botao>
-                        Cadastrar
-                        </Botao>
+                        <Botao>Cadastrar</Botao>
                     </ModalContainer>
                     <CloseIcon
                         onClick={() => setShowModal(false)}

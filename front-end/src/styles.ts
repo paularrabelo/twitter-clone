@@ -27,6 +27,7 @@ export const GlobalCSS = createGlobalStyle`
         font-family: ${fontes.principal};
         list-style: none;
         text-decoration: none;
+        background-color: ${cores.preto};
     }
 
     .container{
