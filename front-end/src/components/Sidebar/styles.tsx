@@ -15,19 +15,31 @@ export const Content = styled.div`
     align-items: center;
     gap: 30px;
     color: ${cores.branco};
+    padding-top: 24px;
 `
 
 export const BotaoMenu = styled.button`
+    display: flex;
+    align-items: center;
     width: 80%;
     height: 50px;
-    border: 1px solid ${cores.amarelo};
+    border: none;
     border-radius: 15px;
     color: ${cores.branco};
     font-size: 24px;
-    align-content: center;
     text-align: start;
     padding: 8px;
     cursor: pointer;
     font-family: ${fontes.principal};
     font-weight: 200;
+    
+    img {
+        padding: 8px;
+    }
+
+    &.postar {
+        justify-content: center;
+        text-align: center;
+        border: 1px solid ${cores.amarelo};
+    }
 `
