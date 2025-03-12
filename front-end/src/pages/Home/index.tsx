@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Quack from '../../../public/Q.svg'
+import Quack from '../../assets/Q.svg'
 import { Botao, CloseIcon, Formulario, HomeContainer, Input, Logo, Modal, ModalContainer, ModalContent, Title } from './styles'
-import close from "../../../public/marca-cruzada.png"
+import close from "../../assets/marca-cruzada.png"
 
 const Home = () => {
 

@@ -1,11 +1,10 @@
 import styled from 'styled-components'
-import { cores, fontes } from '../../styles'
+import { cores } from '../../styles'
 
 export const Aside = styled.aside`
   padding: 16px;
   height: 100vh;
-  width: 300px;
-  border-right: 1px solid ${cores.amarelo};
+  width: 400px;
   color: ${cores.branco};
 `
 export const Content = styled.div`
@@ -16,30 +15,4 @@ export const Content = styled.div`
     gap: 30px;
     color: ${cores.branco};
     padding-top: 24px;
-`
-
-export const BotaoMenu = styled.button`
-    display: flex;
-    align-items: center;
-    width: 80%;
-    height: 50px;
-    border: none;
-    border-radius: 15px;
-    color: ${cores.branco};
-    font-size: 24px;
-    text-align: start;
-    padding: 8px;
-    cursor: pointer;
-    font-family: ${fontes.principal};
-    font-weight: 200;
-    
-    img {
-        padding: 8px;
-    }
-
-    &.postar {
-        justify-content: center;
-        text-align: center;
-        border: 1px solid ${cores.amarelo};
-    }
 `
