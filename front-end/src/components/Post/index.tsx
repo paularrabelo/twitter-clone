@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import EmojiPicker from "emoji-picker-react"; // Instale com: npm install emoji-picker-react
+import EmojiPicker from "emoji-picker-react";
 import { Container, ContainerContent, ContainerFoto, FotoPerfil, TextArea, FileInput, PreviewContainer, RemoveButton, BotoesIcone, ContainerBotoesPost, BotaoPostar } from "./styles";
 import fotoPerfil from "../../assets/Captura de tela 2024-11-13 105851.png";
 import iconeEmoji from "../../assets/feliz.png"

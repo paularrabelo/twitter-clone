@@ -1,6 +1,7 @@
 import BotoesFeed from "../../components/ButtonsFeed"
 import BotoesMenu from "../../components/ButtonsMenu"
 import Post from "../../components/Post"
+import Quack from "../../components/Quack"
 import Sidebar from "../../components/Sidebar"
 import { ContainerFeed, ContentFeed } from "./styles"
 
@@ -13,6 +14,7 @@ const Feed = () => {
             <ContentFeed>
                 <BotoesFeed />
                 <Post />
+                <Quack />
             </ContentFeed>
             <Sidebar>
                 <p>Sugestoes</p>
