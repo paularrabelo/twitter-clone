@@ -1,5 +1,6 @@
 import fotoPerfil from '../../assets/Captura de tela 2024-11-13 105851.png'
-import { ContainerContentQuack, ContainerHeaderQuack, ContainerInteracoesQuack, ContainerQuack, ImagemPerfilQuack } from './styles'
+import { ContainerContentQuack, ContainerHeaderQuack, ContainerInteracoesQuack, ContainerQuack, ImagemPerfilQuack, TextHeader } from './styles'
+import imagemTeste from '../../assets/Captura de tela 2024-11-13 105851.png'
 
 const Quack = () => {
     return (
@@ -7,12 +8,12 @@ const Quack = () => {
             <ContainerHeaderQuack>
                 <ImagemPerfilQuack src={fotoPerfil} alt="" />
                 <p>Paula Rabelo</p>
-                <p>@paularabelo</p>
-                <p>data</p>
+                <TextHeader>@paularabelo</TextHeader>
+                <TextHeader>04/04/2025</TextHeader>
             </ContainerHeaderQuack>
             <ContainerContentQuack>
                 <h1>Conteudo do post</h1>
-                <img src="" alt="" /> 
+                <img src={imagemTeste} alt="imagem teste" /> 
             </ContainerContentQuack>
             <ContainerInteracoesQuack>
                     <input type="checkbox" />

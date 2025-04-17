@@ -7,9 +7,11 @@ export const ContainerFeed = styled.div`
 `
 export const ContentFeed = styled.div`
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     color: ${cores.branco};
     border-left: 1px solid ${cores.amarelo};
     border-right: 1px solid ${cores.amarelo};
+    overflow-y: scroll;
 `

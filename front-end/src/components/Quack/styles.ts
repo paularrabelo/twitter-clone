@@ -5,6 +5,7 @@ export const ContainerQuack = styled.div`
     display: block;
     justify-content: space-between;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 24px;
 `
@@ -14,11 +15,23 @@ export const ContainerHeaderQuack = styled.div`
     align-items: center;
     margin-bottom: 16px;
 `
+export const TextHeader = styled.p`
+    font-size: 10px;
+`
 
 export const ContainerContentQuack = styled.div`
     display: flex;
+    margin: 24px 60px;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-bottom: 8px;
+
+    img {
+        margin-top: 16px;
+        width: 500px;
+        height: 500px;
+    }
 `
 export const ContainerInteracoesQuack = styled.label`
     display: block;

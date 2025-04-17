@@ -3,7 +3,6 @@ import { cores } from "../../styles";
 
 export const Container = styled.div`
     width: 100%;
-    min-height: 30%;
     height: auto;
     padding: 16px;
     display: flex;
