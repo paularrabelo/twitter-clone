@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Follow, Tweet, Like, Retweet
+from .models import Follow, Tweet, Like, Retweet, Comment, Message, Notification
 
 class TweetSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField(read_only=True)
@@ -24,3 +24,27 @@ class RetweetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Retweet
         fields = ['id', 'user', 'original_tweet', 'comment', 'retweeted_at']
+
+class CommentSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+    tweet = serializers.PrimaryKeyRelatedField(queryset=Tweet.objects.all())
+
+    class Meta:
+        model = Comment
+        fields = ['id', 'user', 'tweet', 'content', 'created_at']
+
+class MessageSerializer(serializers.ModelSerializer):
+    sender = serializers.StringRelatedField(read_only=True)
+    receiver = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Message
+        fields = ['id', 'sender', 'receiver', 'content', 'sent_at']
+
+class NotificationSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Notification
+        fields = ['id', 'user', 'content', 'created_at', 'is_read']
+

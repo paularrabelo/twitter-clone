@@ -47,3 +47,32 @@ class Retweet(models.Model):
     
     def __str__(self):
         return f"{self.user.username} retweeted tweet {self.original_tweet.id}"
+
+class Comment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE, related_name='comments')
+    content = models.CharField(max_length=280)
+    created_at = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return f"Comment by {self.user.username} on tweet {self.tweet.id}"
+    
+
+class Message(models.Model):
+    sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='sent_messages')
+    receiver = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='received_messages')
+    content = models.TextField()
+    sent_at = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return f"Message from {self.sender.username} to {self.receiver.username}"
+
+class Notification(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='notifications')
+    content = models.CharField(max_length=280)
+    created_at = models.DateTimeField(default=timezone.now)
+    is_read = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f"Notification for {self.user.username}: {self.content[:50]}"
+
