@@ -6,11 +6,11 @@ import close from "../../assets/marca-cruzada.png"
 
 const Home = () => {
 
-    const [showModal, setShowModal] = useState(false)
-    const [ email, setEmail] = useState("")
-    const [ password, setPassword] = useState("")
-    const [ registerEmail, setRegisterEmail] = useState("")
-    const [ registerPassword, setRegisterPassword] = useState("")
+    const [ showModal, setShowModal ] = useState(false)
+    const [ email, setEmail ] = useState("")
+    const [ password, setPassword ] = useState("")
+    const [ registerEmail, setRegisterEmail ] = useState("")
+    const [ registerPassword, setRegisterPassword ] = useState("")
     const [ mensagem, setMensagem ] = useState("")
     const [ erroLogin, setErroLogin ] = useState("")
 

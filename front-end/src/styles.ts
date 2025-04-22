@@ -37,7 +37,7 @@ export const GlobalCSS = createGlobalStyle`
         padding: 0 16px;
 
         @media (max-width: ${breakpoints.mobile}){
-            max-width: 100%;
+            max-width: 90%;
         }
     }
 `
