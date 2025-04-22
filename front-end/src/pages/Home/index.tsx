@@ -11,20 +11,48 @@ const Home = () => {
     const [ password, setPassword] = useState("")
     const [ registerEmail, setRegisterEmail] = useState("")
     const [ registerPassword, setRegisterPassword] = useState("")
+    const [ mensagem, setMensagem ] = useState("")
 
     const supabase = createClient("https://ihdtaolmhmbosoqsmlgb.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloZHRhb2xtaG1ib3NvcXNtbGdiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MDQyMjcyNCwiZXhwIjoyMDU1OTk4NzI0fQ.m4Uwh1MfNkYqSPHD5k2qrfRMOAYHwE76RDvexu3eOjg")
 
     async function signUp() {
-        const { error } = await supabase.auth.signUp({ email: registerEmail, password: registerPassword });
-        if (error) console.error('Erro ao criar conta: ', error.message);
-        else console.log('Usuário cadastrado!')
-        setShowModal(false)
+        const { error } = await supabase.auth.signUp({ 
+            email: registerEmail, 
+            password: registerPassword 
+        });
+
+        if (error) {
+            if (error.message.includes('already registered')) {
+                setMensagem('Este e-mail já está cadastrado. Tente fazer login.');
+            } else {
+                setMensagem('Erro ao criar conta: ' + error.message);
+            }
+        } else {
+            setMensagem('Usuário cadastrado com sucesso!');
+
+            const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
+                email: registerEmail,
+                password: registerPassword
+            });
+
+            if (loginError) {
+                setMensagem('Conta criada, mas houve um erro ao fazer login: ' + loginError.message);
+            } else {
+                localStorage.setItem('accessToken', loginData.session.access_token);
+                window.location.href = '/feed';
+            }
+        }
     }
 
     async function signIn(){
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) console.log('Erro no login: ', error.message);
-        else console.log('Usuário logado ', data.user, 'Token: ', data.session.access_token)
+        if (error) {
+            console.log('Erro no login: ', error.message);
+        } else { 
+            console.log('Usuário logado ', data.user, 'Token: ', data.session.access_token)
+            localStorage.setItem('acessToken', data.session.access_token)
+            window.location.href = '/feed'
+        }
     }
 
     return (
@@ -49,6 +77,8 @@ const Home = () => {
                         <Input placeholder='email' value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)}/>
                         <Input type='password' placeholder='senha' value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
                         <Botao onClick={signUp}>Cadastrar</Botao>
+                        {mensagem && 
+                        <p>{mensagem}</p>}
                     </ModalContainer>
                     <CloseIcon
                         onClick={() => setShowModal(false)}

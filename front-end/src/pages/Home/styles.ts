@@ -171,6 +171,10 @@ export const ModalContainer = styled.div`
   width: 100%;
   margin: 32px;
   gap: 16px;
+
+  p {
+    color: ${cores.amarelo};
+  }
 `
 
 export const FoodTitle = styled.h3`
